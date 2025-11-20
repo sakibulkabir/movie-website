@@ -1,0 +1,54 @@
+
+import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import Root from './Layout/Root';
+import Home from './Pages/Home/Home';
+import Movie from './Pages/Movie/Movie';
+import TvShow from './Pages/TvShow/TvShow';
+import Pricing from './Pages/Pricing/Pricing';
+import Blog from './Pages/Blog/Blog';
+import Contact from './Pages/Contact/Contact';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root></Root>,
+    children: [
+      { index: true, 
+        element:<Home></Home>
+      },
+      {
+        path:"/movie",
+        element:<Movie></Movie>
+      },
+      {
+        path:"/tv-show",
+        element:<TvShow></TvShow>
+      },
+      {
+        path:"/pricing",
+        element:<Pricing></Pricing>
+      },
+      {
+        path:"/blog",
+        element:<Blog></Blog>
+      },
+      {
+        path:"/contact",
+        element:<Contact></Contact>
+      }
+      
+    ],
+
+  },
+]);
+
+const root = document.getElementById("root");
+
+ReactDOM.createRoot(root).render(
+  <RouterProvider router={router} />,
+);
+
